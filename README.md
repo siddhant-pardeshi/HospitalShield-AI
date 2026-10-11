@@ -5,13 +5,15 @@
 [![Python 3.11](https://img.shields.io/badge/python-3.11-3776ab.svg)](https://www.python.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](https://www.typescriptlang.org/)
 [![Tests](https://img.shields.io/badge/tests-1%2C133%20passing-brightgreen.svg)](docs/test-report.md)
+[![FUSION 2026](https://img.shields.io/badge/FUSION%202026-Top%2030%20of%20475%20teams-8b5cf6.svg)](#hackathon)
 
 A climate-resilient hospital digital twin. Model a hospital's beds, staff, power, fuel, supplies and patient
 flow, stress it with extreme-weather scenarios, watch which constraint binds first, and get an ordered,
 feasible action plan — with a measured before/after comparison for every claim.
 
-Built for hackathon problem **HC-03** (Mayo Clinic): *extreme weather disrupts healthcare even when the
-building stays intact*.
+Built for hackathon problem **HC-03** (Mayo Clinic) at **FUSION 2026** — built in 24 hours, shortlisted
+among the **Top 30 of 475 registered teams** for the final round: *extreme weather disrupts healthcare even
+when the building stays intact*.
 
 ```
 scenario ──▶ calculated operational impact ──▶ critical failure points
@@ -157,3 +159,10 @@ All hospital values are synthetic or operator-supplied; multipliers are scenario
 abstract operational constraint — no claim about real generator or life-support safety. Outputs support
 planning exploration only; real use needs validated local data and expert review. No personal health
 information is used or produced.
+
+## Hackathon
+
+- **Event:** FUSION 2026 (listed on Unstop) — a 24-hour international hackathon by the IIC E-Cell SKNCOE × SKN IEEE Student Branch, Smt. Kashibai Navle College of Engineering, Pune, 9–10 October 2026
+- **Track:** Healthcare (problem HC-03, Mayo Clinic — climate-resilient hospital digital twin)
+- **Result:** shortlisted among the **Top 30 of 475 registered teams** for the final round; participation certificates and hackathon swag
+- **Scope:** everything in this repository — engine, tests, dashboard and docs — was built by the team during the 24-hour event window, on top of nothing but open-source libraries and public APIs (per the event rules)
