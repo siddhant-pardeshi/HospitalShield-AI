@@ -38,6 +38,7 @@ repo."*
 
 ## Pre-flight checklist
 
+- [ ] `make snapshots` run once, so the offline fallback exists (it is generated, not committed)
 - [ ] Backend starts clean (`uvicorn app.main:app --port 8000`), `/health` returns 200
 - [ ] Frontend dev server or `npm run preview` serves the built bundle
 - [ ] Overview auto-run completes; KPIs populate

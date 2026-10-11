@@ -1,5 +1,11 @@
 # HospitalShield AI
 
+[![CI](https://github.com/siddhant-pardeshi/HospitalShield-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/siddhant-pardeshi/HospitalShield-AI/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-3776ab.svg)](https://www.python.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](https://www.typescriptlang.org/)
+[![Tests](https://img.shields.io/badge/tests-1%2C133%20passing-brightgreen.svg)](docs/test-report.md)
+
 A climate-resilient hospital digital twin. Model a hospital's beds, staff, power, fuel, supplies and patient
 flow, stress it with extreme-weather scenarios, watch which constraint binds first, and get an ordered,
 feasible action plan — with a measured before/after comparison for every claim.
@@ -14,6 +20,32 @@ scenario ──▶ calculated operational impact ──▶ critical failure poin
 
 > **What this is:** a planning prototype on synthetic (or your own uploaded) facility data.
 > **What it is not:** a clinical, engineering-safety or live-operations system. Every screen says so.
+
+---
+
+## Screenshots
+
+| Overview — Command Center | Hospital Twin |
+|:---:|:---:|
+| ![Overview](docs/img/overview.png) | ![Hospital Twin](docs/img/twin.png) |
+
+| Failure Points & Action Plan | Compare Runs |
+|:---:|:---:|
+| ![Failure Points](docs/img/failures.png) | ![Compare](docs/img/compare.png) |
+
+## The demo in numbers (heatwave + 36 h grid outage, 72 h horizon)
+
+| Metric | Baseline | With planner's plan | Delta |
+|---|---:|---:|---:|
+| Resilience Index (0-100) | 63.7 | 81.2 | **+17.5** |
+| Overflow patient-hours | 638 | 252 | **-386** |
+| Energy unserved (kWh) | 8,892 | 4,314 | **-4,578** |
+
+The plan the search found: request 2,016 L of emergency fuel at **hour 0** - it lands at hour 12, *before*
+the access window closes; the same request made later delivers only a fraction through the disrupted road.
+And move two nurses **ED -> ICU**, because the ICU is staff-capped and its surge beds are unusable until
+staffing moves. Same seed, same weather, same starting state for both runs. That is what makes the
+before/after honest.
 
 ---
 
@@ -37,9 +69,9 @@ Or with Docker:
 docker compose up --build          # API on :8000, dashboard on :5173
 ```
 
-The Overview page auto-runs the 72-hour heatwave-with-outage demo on load. No network needed after install —
-the offline fallback serves precomputed results if the API is unreachable (marked **PRECOMPUTED**, editing
-disabled).
+The Overview page auto-runs the 72-hour heatwave-with-outage demo on load. For a fully offline demo, run
+`make snapshots` once - it generates the precomputed fallback the dashboard loads if the API is unreachable
+(marked **PRECOMPUTED**, editing disabled).
 
 ## The one loop that matters
 
